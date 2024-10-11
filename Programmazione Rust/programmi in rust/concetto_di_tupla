@@ -1,0 +1,14 @@
+// TUPLA
+
+// // Tupla è costituito da ub insieme di variabili ciascuno con
+// il suo tipo
+
+let t: (i32, bool) = (123,false);   // t è una tupla formata da un intero
+                                    // e da un booleano
+
+let mut u = (3.14,2.71);            // u èuna tupla riassegnabile formata
+                                    // da due double    
+
+let i = t.0;                        // i contete il valore 123
+
+u.1 = 0.0;                          // adesso u contiene (3.14,0.0)

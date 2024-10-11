@@ -1,0 +1,8 @@
+fn main() {
+    let y = {
+        let x = 3;   // variabile temporanea
+        x + 1       // espressione . l'assenza del ; è strategico
+    };              // espressione produce valore ed è associato al blocco
+                    // metto la ; infatti dopo la } ;
+    println!("The value of y is: {y}");
+}

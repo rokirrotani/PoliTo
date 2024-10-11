@@ -1,0 +1,70 @@
+// RIFERIMENTI
+
+fn main() {
+    let mut i = 32;           // i posso modificare
+    let r = &i;              // r è un ref ad i
+    println!("{}", *r);     // stampo il valore della variabile i
+    i = i+1; // Problematico!   // aggiorno i, ma non è possibile!!! perchè 
+    println!("{}", *r);       // è presente un REF!!
+    }                   // subito dopo utilizzo del REF
+
+    /*
+    error[E0506]: cannot assign to `i` because it is
+borrowed
+--> src/main.rs:11:3
+|
+8 | let r = &i;
+| -- borrow of `i` occurs here       -> i viene prestato ad r
+...
+11 | i = i+1;
+| ^^^^^^^ assignment to borrowed `i` occurs here
+12 | println!("{}", *r);
+| -- borrow later used here         -> tra l'inizio del borrow e la fine
+ */                                // cè un dato prestato - op lecita
+
+/////////////////////////////////////////////////////////////////////
+
+ fn main() {
+    let mut i = 32;
+    let r = &mut i;
+    println!("{}", i);// Problema!
+    *r = *r+1;
+    println!("{}", *r);
+    }
+
+    /*
+    error[E0502]: cannot borrow `i` as immutable because it
+is also borrowed as mutable
+--> src/main.rs:9:18
+|
+8 | let r = &mut i;
+| ------ mutable borrow occurs here
+9 | println!("{}", i);
+| ^ immutable borrow occurs here
+10 |
+11 | *r = *r+1;
+| -- mutable borrow later used here
+ */
+
+
+ ///////////////////////////////////////////////////////////////////////
+ 
+ // REF GIUSTO:
+
+ fn main() {
+    let mut i = 32;
+    let r = &i;
+    println!("{}", *r);     // -->>>>>>>><<<-----
+    i = i+1;
+    println!("{i}");
+    }
+    
+///////////////////////////////////////////////////////////
+
+    fn main() {
+    let mut i = 32;
+    let r = &mut i;
+    *r = *r+1;
+    println!("{}", *r);     // -->>>>>>>><<<-----
+    println!("{}", i);      // -->>>>>>>><<<-----
+    }

@@ -1,0 +1,60 @@
+// PUNTATORI E MEMORIA
+
+// Ritorna il concetto di POSSESSO
+// Possesso = una responsabilità, possedere una zona di memoria
+// vuol dire poi farne il rilascio -> 1 solo proprietario
+
+// 1° concetto : un puntatore puo fare riferimento ad un dato
+// senza averne il possesso
+
+// il compilatore è molto preciso nel tenere conto del tempo di vita
+// della variabile  -> il tempo di vita di una variabile NON è calcolato
+// in RunTime, scandendo il codice si puo vedere il tempo di vita
+
+// si puo gestire manualmente anche mettendo un blocco UNSAFE
+// cosi posso richiamare librerie non scritte in RUST
+// ci sono anche alcune cose che il compilatore fa delle assunzioni e
+// il programmatore sa che sono troppo rigide, rilassando vincoli e regole
+
+
+// RIFERIMENI
+// ref o ref mut
+
+// & 
+// un riferimento &&&&&&& che è un puntatore di una variabile
+
+let r1 = &v;    // v qualsiasi valore , definisce ed inizializza il 
+                // riferimento r1
+
+let r2 = &mut v;    // RefMut definisce ed inizializza il riferimento
+                    // mutabile r2
+
+let r3 = &120;      // immediato inserito nell'istruzione
+                    // non viene attribuito un nome di variabile
+                    // memorizzato nello stack ( temporaneo )
+
+// per accedere ad un dato:
+*r1 = ... ;
+
+// questi riferimenti possono essere copiati 
+// posso avere piu riferimenti che fanno accesso allo stesso dato
+// non è possibile accedere al dato in scrittura.
+// anche se fosse stato dichiarato mutabile!"!"!
+// posso pero creare un numero svariato di copie :D
+// la variabile a cui punta non puo essere modificata
+
+// una volta creato un ref mut non posso piu accedere al dato direttamente
+// posso accedere al dato solo attraverso la variabile r2
+// questo mut assume un significato ben preciso
+// riferimento MUTUAMENTE esclusivo
+// l'unico che puo accedere al dato è il refirimento r2
+
+
+// Ref e RefMut -> Puntatori Privi di POSSESSO
+// Li posso ricavare da una variabile già esistente
+// Chi li riceve non ha la responsabilità del rilascio che rimane 
+// comunque al possessore originale
+// se voglio operare su un dato puntato posso invocare un metodo senza
+// deferenziare il Ref.
+// Il compilatore va a vedere cos acè prima del punto e se è un Ref
+// lo DEFERENZIA automaticamente

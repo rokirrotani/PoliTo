@@ -1,0 +1,29 @@
+// TRATTO IN RUST
+
+// Un tratto è una proprieta, dei tipi e sono dei modi - metodi
+// che possono essere applicati ad un tipo
+
+// Un tipo implementa : 1 o + TRATTI
+// ogni variabile è un tipo :D
+
+// Ex: il Tipo INT
+// Il tipo INT beneficia del tratto Copy, cioè posso copiare il valore
+let v= i32 = 123;
+
+let mut w = v;
+
+// godono del tratto copy!: 
+
+
+// Si possono confrontare, con Eq, su numeri interi posso applicare
+// L'operatore di ==
+
+// Ancora cè il tratto Ord ovvero valutare la relazione d'ordine
+// dove applici maggiore / minore / ecc.. => <= stayci campanella
+
+//Dipendenza tra tratti:
+// Se il tipo ha ub certo tratto non puo averne un altro
+// a volte pero sono privi di metodi, cioè definiscono una propieta
+// ma non hanno una espressione dentro
+
+// <_____________________________________________________>
